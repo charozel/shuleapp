@@ -1,0 +1,48 @@
+{
+	"expo": {
+		"name": "shuleapp",
+		"slug": "shuleapp",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff",
+			"extra": {
+				"eas": {
+					"projectId": "7b373e6f-6cc4-48a7-a12a-df22d33891c1"
+				}
+			},
+			"assetBundlePatterns": ["**/*"],
+			"ios": {
+				"supportsTablet": true
+			},
+			"android": {
+				"adaptiveIcon": {
+					"foregroundImage": "./assets/adaptive-icon.png",
+					"backgroundColor": "#ffd"
+				},
+				"package": "com.charozel.shuleapp",
+				"versionCode": 1
+			},
+			"web": {
+				"favicon": "./assets/favicon.png"
+			}
+		},
+		"runtimeVersion": {
+			"policy": "sdkVersion"
+		},
+		"updates": {
+			"url": "https://u.expo.dev/7b373e6f-6cc4-48a7-a12a-df22d33891c1"
+		},
+		"android": {},
+		"ios": {},
+		"extra": {
+			"eas": {
+				"projectId": "f0f0af13-badb-40af-8b7a-f37ea432945d"
+			}
+		}
+	}
+}
