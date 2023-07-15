@@ -5,11 +5,12 @@ import { AntDesign } from "@expo/vector-icons";
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
 import { AuthContext } from "../Context/AuthContext";
+import Services from "../Shared/Services";
 export default function Login() {
 	WebBrowser.maybeCompleteAuthSession();
 	const [accessToken, setAccessToken] = useState();
 	const [userInfo, setUserInfo] = useState();
-	const [userData, setUserData] = useContext(AuthContext);
+	const { userData, setUserData } = useContext(AuthContext);
 	const [request, response, promptAsync] = Google.useAuthRequest({
 		androidClientId:
 			"14418695642-bofr7vrmt0thajgthoftlej69bcgrrkl.apps.googleusercontent.com",
@@ -19,7 +20,6 @@ export default function Login() {
 	useEffect(() => {
 		if (response?.type == "success") {
 			setAccessToken(response.authentication.accessToken);
-
 			getUserData();
 		}
 	}, [response]);
@@ -31,9 +31,10 @@ export default function Login() {
 				},
 			});
 			const user = await resp.json();
-			console.log("user Details, user");
+			console.log("user Details", user);
 			setUserInfo(user);
 			setUserData(user);
+			await Services.setUserAuth(user);
 		} catch {
 			error;
 		}

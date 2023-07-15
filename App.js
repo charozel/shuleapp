@@ -4,9 +4,21 @@ import Login from "./App/Pages/Login";
 import { AuthContext } from "./App/Context/AuthContext";
 import { useEffect, useState } from "react";
 import Home from "./App/Pages/Home";
+import Services from "./App/Shared/Services";
+
 export default function App() {
 	const [userData, setUserData] = useState();
-	useEffect(() => {}, []);
+	useEffect(() => {
+		Services.getUserAuth().then((resp) => {
+			console.log(resp);
+			if (resp) {
+				setUserData(resp);
+			} else {
+				setUserData(null);
+			}
+		});
+	}, []);
+
 	return (
 		<View>
 			<AuthContext.Provider value={{ userData, setUserData }}>
