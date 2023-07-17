@@ -8,9 +8,11 @@ const getUserAuth = async () => {
 	const value = await AsyncStorage.getItem("userData");
 	return JSON.parse(value);
 };
+
 const Logout = () => {
 	AsyncStorage.clear();
 };
+
 export default {
 	setUserAuth,
 	getUserAuth,
